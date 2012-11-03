@@ -54,7 +54,7 @@ module CoffeeScript
         options[:bare] = false
       end
 
-      Source.context.call("CoffeeScript.compile", script, options)
+      Source.context.call("(function() { return CoffeeScript.js(CoffeeScript.compile(CoffeeScript.parse.apply(this, arguments))) })", script, options)
     end
   end
 end
